@@ -7,8 +7,18 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text("ホーム") // <- (※3)
-      ,
-    );
+      child:ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            leading: CircleAvatar(
+                    backgroundImage:NetworkImage ('https://batom.jp/wp-content/uploads/user/23/4tdi40tf-300x300.jpg')
+                    ), //写真
+            title:Text('タイトル'),//APIから取ってくる
+            subtitle: Text('アカウント名'),//APIから取ってくる
+          );
+        },
+        itemCount: 10,
+      ),
+      );
   }
 }

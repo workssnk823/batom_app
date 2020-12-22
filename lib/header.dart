@@ -15,8 +15,20 @@ class Header extends StatelessWidget with PreferredSizeWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.settings,
+            child: Row(
+              children: [
+                SizedBox(
+                  height: 40,
+                    child: ClipOval(
+                        child: Image.network ('https://batom.jp/wp-content/uploads/user/23/4tdi40tf-300x300.jpg',
+                          fit: BoxFit.cover,
+                          width: 35.0,),
+                      )
+                  ),
+                Icon(
+                  Icons.settings,
+                ),
+              ],
             ),
           ),
         ],

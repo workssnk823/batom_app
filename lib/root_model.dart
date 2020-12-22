@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_module/color.dart';
 
 class RootModel extends ChangeNotifier {
   int _currentIndex = 0;
@@ -7,18 +8,18 @@ class RootModel extends ChangeNotifier {
 
   static const _footerIcons = [
     Icons.home,
-    Icons.notifications,
+    Icons.search,
     Icons.post_add_outlined,
-    Icons.connect_without_contact_rounded, //content_paste,
-    Icons.settings,
+    Icons.notifications, //content_paste,
+    Icons.connect_without_contact_rounded,
   ];
 
   static const _footerItemNames = [
     'ホーム',
-    '通知',
+    'フォロー',
     '投稿',
+    '通知',
     '紹介',
-    '設定',
   ];
 
   RootModel() {
@@ -37,12 +38,12 @@ class RootModel extends ChangeNotifier {
     return BottomNavigationBarItem(
         icon: Icon(
           _footerIcons[index],
-          color: Colors.black87,
+          color: Colors.white,
         ),
         title: Text(
           _footerItemNames[index],
           style: TextStyle(
-            color: Colors.black87,
+            color: Colors.white,
           ),
         ));
   }
@@ -51,12 +52,12 @@ class RootModel extends ChangeNotifier {
     return BottomNavigationBarItem(
         icon: Icon(
           _footerIcons[index],
-          color: Colors.black26,
+          color: Colors.white,
         ),
         title: Text(
           _footerItemNames[index],
           style: TextStyle(
-            color: Colors.black26,
+            color: Colors.white,
           ),
         ));
   }
