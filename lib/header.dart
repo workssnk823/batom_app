@@ -8,17 +8,26 @@ class Header extends StatelessWidget with PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.settings),
+    return SizedBox(
+      height: 75,
+      child: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(
+                  Icons.settings,
+              ),
+            ),
+          ],
+          title: SizedBox(
+          child:Image.asset('images/batom_header_logo.jpg'),
+          width:200,
           ),
-        ],
-        title: Text('Bat"om~バトン~'),
-        backgroundColor: generalColor,
-        centerTitle: true,
-        elevation: 0.0,
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          elevation: 0.0,
+      ),
     );
   }
 }

@@ -2,12 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // == 作成したWidget をインポート ==================
+import 'color.dart';
 import 'header.dart';
 import 'routes/home_route.dart';
-import 'routes/talk_route.dart';
-import 'routes/timeline_route.dart';
-import 'routes/wallet_route.dart';
-import 'routes/news_route.dart';
+import 'routes/notification_route.dart';
+import 'routes/post_route.dart';
+import 'routes/setting_route.dart';
+import 'routes/introduction_route.dart';
 // =============================================
 
 class RootWidget extends StatefulWidget {
@@ -23,26 +24,26 @@ class _RootWidgetState extends State<RootWidget> {
 
   static const _footerIcons = [
     Icons.home,
-    Icons.textsms,
-    Icons.access_time,
-    Icons.content_paste,
-    Icons.work,
+    Icons.notifications,
+    Icons.post_add_outlined,
+    Icons.connect_without_contact_rounded,//content_paste,
+    Icons.settings,
   ];
 
   static const _footerItemNames = [
     'ホーム',
-    'トーク',
-    'タイムライン',
-    'ニュース',
-    'ウォレット',
+    '通知',
+    '投稿',
+    '紹介',
+    '設定',
   ];
   // === 追加部分 ===
   var _routes = [
     Home(),
-    Talk(),
-    TimeLine(),
-    News(),
-    Wallet(),
+    Notificate(),
+    Post(),
+    Introduction(),
+    Setting(),
   ];
   // ==============
 
@@ -103,24 +104,38 @@ class _RootWidgetState extends State<RootWidget> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
-              child: Text('Drawer Header',
-                style: TextStyle(
-                  color:Colors.white,
+            SizedBox(
+              height:70,
+              //width:,
+              child: DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
                 ),
               ),
-
-              decoration: BoxDecoration(
-                color: Colors.black,
-              ),
             ),
             ListTile(
-              title: Text("Item 1"),
-              trailing: Icon(Icons.arrow_forward),
+              title: Text("通知"),
+              trailing: Icon(Icons.arrow_forward_ios),
             ),
             ListTile(
-              title: Text("Item 2"),
-              trailing: Icon(Icons.arrow_forward),
+              title: Text("投稿"),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+            ListTile(
+              title: Text("タイムライン"),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+            ListTile(
+              title: Text("プロフィール"),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+            ListTile(
+              title: Text("設定"),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+            ListTile(
+              title: Text("お問い合わせ"),
+              trailing: Icon(Icons.arrow_forward_ios),
             ),
           ],
         ),

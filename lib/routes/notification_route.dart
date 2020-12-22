@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../header.dart';
 import 'tile.dart';// <- インポート
-class Talk extends StatelessWidget {
+class Notificate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
