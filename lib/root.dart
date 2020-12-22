@@ -99,6 +99,32 @@ class _RootWidgetState extends State<RootWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Header(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              child: Text('Drawer Header',
+                style: TextStyle(
+                  color:Colors.white,
+                ),
+              ),
+
+              decoration: BoxDecoration(
+                color: Colors.black,
+              ),
+            ),
+            ListTile(
+              title: Text("Item 1"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              title: Text("Item 2"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+          ],
+        ),
+      ),
       body: _routes.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed, // これを書かないと3つまでしか表示されない
