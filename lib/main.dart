@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'root.dart';
 import 'color.dart';
 
-    void main() => runApp(App());
+void main() => runApp(App());
 
 class App extends StatelessWidget {
   @override
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
       title: 'Batom~バトン~',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        backgroundColor:generalColor,
+        backgroundColor: generalColor,
       ),
       home: RootWidget(),
     );
