@@ -19,6 +19,7 @@ import 'help.dart';
 import 'infomation.dart';
 import 'setting.dart';
 import 'package:page_transition/page_transition.dart';
+import 'web_view.dart';
 // =============================================
 
 class RootWidget extends StatelessWidget {
@@ -78,7 +79,8 @@ class RootWidget extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) {
-                              return App();
+                              return App(
+                              );
                             },
                           ),
                         );
@@ -161,7 +163,7 @@ class RootWidget extends StatelessWidget {
                         Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) {
-                              return Info();
+                              return WebViewPage();
                             },
                           ),
                         );
