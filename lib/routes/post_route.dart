@@ -6,7 +6,7 @@ class Post extends StatelessWidget {
   // <- (※1)
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("タイムライン") // <- (※3)
+    return Center(child: Text("投稿") // <- (※3)
         );
   }
 }

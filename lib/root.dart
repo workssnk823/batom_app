@@ -7,11 +7,18 @@ import 'package:provider/single_child_widget.dart';
 import 'color.dart';
 import 'header.dart';
 import 'core/models/root_model.dart';
+import 'main.dart';
 import 'routes/home_route.dart';
 import 'routes/notification_route.dart';
 import 'routes/post_route.dart';
 import 'routes/search_route.dart';
 import 'routes/introduction_route.dart';
+import 'timeline.dart';
+import 'prpfile.dart';
+import 'help.dart';
+import 'infomation.dart';
+import 'setting.dart';
+import 'package:page_transition/page_transition.dart';
 // =============================================
 
 class RootWidget extends StatelessWidget {
@@ -31,45 +38,139 @@ class RootWidget extends StatelessWidget {
         child: Consumer<RootModel>(builder: (context, model, child) {
           return Scaffold(
             appBar: Header(),
-            drawer: Drawer(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: <Widget>[
-                  SizedBox(
-                    height: 70,
-                    //width:,
-                    child: DrawerHeader(
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
+            drawer: SizedBox(
+              width:250, // ドロワーの横幅変更
+              child: Drawer(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    SizedBox(
+                      height: 83,
+                      //width:,
+                      child: DrawerHeader(
+                        padding: const EdgeInsets.all(8.0),
+                          child:InkWell(
+                              onTap: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Container(
+                                padding:const EdgeInsets.only(bottom:50.0),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.dehaze_rounded,
+                                      size: 30,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                )
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                          color: Colors.blue,
+                          ),
                       ),
-                      child: null,
                     ),
-                  ),
-                  ListTile(
-                    title: Text("通知"),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                  ListTile(
-                    title: Text("投稿"),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                  ListTile(
-                    title: Text("タイムライン"),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                  ListTile(
-                    title: Text("プロフィール"),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                  ListTile(
-                    title: Text("設定"),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                  ListTile(
-                    title: Text("お問い合わせ"),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                  ),
-                ],
+                    ListTile(
+                        title: Text("ホーム"),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return App();
+                            },
+                          ),
+                        );
+                      },
+                      trailing: Icon(Icons.arrow_forward_ios),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return  Notificate();
+                            },
+                          ),
+                        );
+                      },
+                      title: Text("通知"),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Timeline();
+                            },
+                          ),
+                        );
+                      },
+                      title: Text("タイムライン"),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Profile();
+                            },
+                          ),
+                        );
+                      },
+                      title: Text("プロフィール"),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Setting();
+                            },
+                          ),
+                        );
+                      },
+                      title: Text("設定"),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Help();
+                            },
+                          ),
+                        );
+                      },
+                      title: Text("ヘルプ"),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return Info();
+                            },
+                          ),
+                        );
+                      },
+                      title: Text("お問い合わせ"),
+                      trailing: Icon(Icons.arrow_forward_ios),
+                    ),
+                  ],
+                ),
               ),
             ),
             body: _routes.elementAt(model.currentIndex),
