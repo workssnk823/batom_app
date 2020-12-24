@@ -6,7 +6,7 @@ import 'package:provider/single_child_widget.dart';
 // == 作成したWidget をインポート ==================
 import 'color.dart';
 import 'header.dart';
-import 'root_model.dart';
+import 'core/models/root_model.dart';
 import 'routes/home_route.dart';
 import 'routes/notification_route.dart';
 import 'routes/post_route.dart';
