@@ -12,16 +12,18 @@ class Home extends StatelessWidget {
       child:ChangeNotifierProvider<HomeRouteModel>(
         create: (_) => HomeRouteModel(),
         child: Consumer<HomeRouteModel>(builder: (context, model, child) {
-            return (model.postsJson == null || model.postsJson.length == 0) ? 
-            Text('Loading....') :
+            return (model.postModels == null || model.postModels.length == 0) ? 
+            Text('') :
+            //ListView(children: [Text(model.userJson.toString())]);
+            
             ListView.builder(
             itemBuilder: (BuildContext context, int index) {
               return ListTile(
                 leading: CircleAvatar(
                         backgroundImage:NetworkImage ('https://batom.jp/wp-content/uploads/user/23/4tdi40tf-300x300.jpg')
                         ), //写真
-                title:Text(model.postsJson[0]['id'].toString()),//APIから取ってくる
-                subtitle: Text('アカウント名'),//APIから取ってくる
+                title:Text(model.postModels[index].title),//APIから取ってくる
+                subtitle: Text(model.postModels[index].userName),//APIから取ってくる
               );
             },
             itemCount: 10,

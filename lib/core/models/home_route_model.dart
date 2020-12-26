@@ -3,9 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_module/color.dart';
 import 'package:flutter_module/core/services/wp_api.dart';
 
-class HomeRouteModel extends ChangeNotifier {
+  class PostModel {
+    String title;
+    String userName;
+    String userLink;
+    String userImgUrl;
+  }
 
-  List<dynamic> postsJson;
+class HomeRouteModel extends ChangeNotifier {
+  List<PostModel> postModels = new List<PostModel>();
+
   
   //初期化
   HomeRouteModel() {
@@ -13,7 +20,19 @@ class HomeRouteModel extends ChangeNotifier {
   }
 
   void buildPostsJson() async {
-    postsJson = await getWpPostsJson();
+    var postsJson = await getWpPostsJson();
+    for(int i = 0; i < postsJson.length; i++) {
+      var postModel = new PostModel();
+      postModel.title = postsJson[i]['title']['rendered'];
+      var userJson = await getWpUser(postsJson[i]['author']);
+      postModel.userName = userJson['name'];
+      postModel.userLink = userJson['link'];
+      postModel.userImgUrl = userJson['url'];
+
+      postModels.add(postModel);
+    }
+    
+
     notifyListeners();
   }
 
